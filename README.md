@@ -61,7 +61,7 @@ connected to one gateway).
 ## How will students view this data from the cloud?
 Once we get the data to the cloud, it can go anywhere we want it to go. While
 most people would make this a "Parking App", I think that is problematic. We
-should encourage students to drive while looking at their phone. This is not
+should not encourage students to drive while looking at their phone. This is not
 a "hands-free" app and will need to be looked at in the car. An app is not the
 answer to this question.
 
