@@ -66,7 +66,10 @@ they leave.
                         |--------|                         |@|
                         |        |
 
-Diagram Key
- |^| = Parking Sensor  || --> = TCP Connection  ||
- |@|    App            ||                       ||
- 
+### Diagram Key
+    |^| = Parking Sensor
+    |@|    App
+    
+    
+    --> = Symphony Link
+    
