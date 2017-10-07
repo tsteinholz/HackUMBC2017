@@ -19,6 +19,7 @@ they leave.
 
 ## Real Aricteture
 '''
+
                        _                                  
                      (`  ).                     _           
                     (     ).      The       .:(`  )`.       
@@ -55,7 +56,8 @@ Diagram Key
 
 ## Simulation Arcitecture
 '''
-                        ==========                          
+
+                        //////////                          
                         |  UMBC  |    The Display Device                         
                         | 1: 15  |      / Parking Server.
      |^| --> --> -->    | 2: 50  |
@@ -63,9 +65,9 @@ Diagram Key
                         |--------|                         |@|
                         |        |
 
-==================================================
+Diagram Key
  |^| = Parking Sensor  || --> = TCP Connection  ||
  |@|    App            ||                       ||
-==================================================
+ 
 '''
 
