@@ -18,7 +18,6 @@ they leave.
 
 
 ## Real Aricteture
-'''
 
                        _                                  
                      (`  ).                     _           
@@ -48,14 +47,16 @@ they leave.
                              |--------|                         |@|
                              |        |
 
-Diagram Key
- |^| = Parking Sensor  || --> = Symphony Link   ||
- |@|                   ||                       ||
+### Diagram Key
+
+    |^| = Parking Sensor
+    |@|
+    
+    
+    --> = Symphony Link
  
-'''
 
 ## Simulation Arcitecture
-'''
 
                         //////////                          
                         |  UMBC  |    The Display Device                         
@@ -69,5 +70,3 @@ Diagram Key
  |^| = Parking Sensor  || --> = TCP Connection  ||
  |@|    App            ||                       ||
  
-'''
-
