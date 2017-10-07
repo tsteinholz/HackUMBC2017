@@ -1,5 +1,5 @@
 # HackUMBC Fall 2017
-A Parking Solution for UMBC
+A Parking Solution for UMBC.
 
 # Problem
 Finding a parking spot during prime-time school hours can be time consuming,
@@ -16,6 +16,63 @@ Your best chance of getting a spot at times like these is to search for a pedest
 walking towards the lot, and follow them back to their spot, and take it as soon as
 they leave.
 
+# Solution
+To fix this problem, I am proposing a system that will track how many spots are 
+avalible in which parking lots. So that when drive into UMBC expecting to find
+a parking spot in a reasonable time, in the best posible location, they know
+exactly where to go.
+
+## How are we going to track what spots are available?
+Using pneumatic vehicle counters on every parking lot entrance / exit. These
+vehicle counters will be able to collect...
+
+* Direction of Travel (in or out of the parking lot)
+* Speed
+* The distance between vehicles
+* The length of each vehicle
+
+per vehicle. When this data is collected over a substantial period of time
+it can be used to make infrastructure improvments, view seasonal trends,
+improve traffic flows, and much more.
+
+While all this data can be collected optionally, the only thing we really
+care about for this application is the direction of travel for each car.
+
+## How will this data be transfered from the parking lot into the cloud?
+Using Symphony Link from Link Labs. Symphony Link is a wireless solution for
+enterprise and industrial customers who need to securely connect their IoT
+devices to the cloud. Symphony Link is optimized for low power and wide range
+which makes it a great candidate for this project.
+
+### RXR / RLP Communication Modules
+Each parking sensor device will need a Link Labs RXR or RLP Communication Module
+which can connect to the Link Labs Gateway.
+
+### Gateway
+This powerful device manages security, uplink and downlink, and many advanced 
+low power, wide-area (LPWA) features only available with Symphony Link. For 
+data backhaul, the gateway features ethernet, WiFi, 3G cellular, or 4G LTE.
+The Link Labs Gateway should be installed on one of the two cellular towers that
+are registered to the University of Maryland: Baltimore County. This would give
+the Gateway a great enough range to cover the entire campus. Although more gateways
+might need to be installed if capacity is too great (more than a hundred modules
+connected to one gateway).
+
+## How will students view this data from the cloud?
+Once we get the data to the cloud, it can go anywhere we want it to go. While
+most people would make this a "Parking App", I think that is problematic. We
+should encourage students to drive while looking at their phone. This is not
+a "hands-free" app and will need to be looked at in the car. An app is not the
+answer to this question.
+
+We should install Symphony connected signs that show up-to-date numbers for the
+cars that are in each lot. These signs need to be in strategic locations (such as
+the UMBC enterances and infront of the Lots, etc.) that can be discussed and modified
+in a later date with more specifics. These signs will display a table of the selected
+lots and how many avalible spaces it has.
+
+The display signs will use the same RXR/RLP Communication Modules to connect to the
+Symphony Network.
 
 ## Real Aricteture
 
