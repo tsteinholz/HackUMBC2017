@@ -7,9 +7,11 @@ from multiprocessing.connection import Listener
 from time import sleep
 from _thread import start_new_thread, allocate_lock
 
+
 SERVER_PORT = 7980
 parking_access_lock = allocate_lock()
 parking_directory = []
+progress_bars = []
 
 def start_server():
     """ Add new connections as they come in. """
@@ -52,12 +54,20 @@ def client_thread(conn):
         #print(conn.fileno(), "]", msg)
         update_parking(conn.fileno(), msg)
 
+def render_parking_spots():
+        with parking_access_lock:
+            print("")
+            for index, lot in enumerate(parking_directory):
+                print("=============================================")
+                print("Parking Lot #" + str(index), " || Avalible Spots: ", 150 - lot[1], "/ 150")
+                print("=============================================")
 
 def main():
     """ Program Entry Point. """
     start_new_thread(start_server, ())
     while True:
+        render_parking_spots()
         sleep(3)
-        print(parking_directory)
+
 
 main()
