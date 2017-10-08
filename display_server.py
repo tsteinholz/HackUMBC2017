@@ -55,12 +55,13 @@ def client_thread(conn):
         update_parking(conn.fileno(), msg)
 
 def render_parking_spots():
-        with parking_access_lock:
-            print("")
-            for index, lot in enumerate(parking_directory):
-                print("=============================================")
-                print("Parking Lot #" + str(index + 1), " || Avalible Spots: ", 150 - lot[1], "/ 150")
-                print("=============================================")
+    """ Render the avalible spots ')'"""
+    with parking_access_lock:
+        print("")
+        for index, lot in enumerate(parking_directory):
+            print("=============================================")
+            print("Parking Lot #" + str(index + 1), " || Avalible Spots: ", 150 - lot[1], "/ 150")
+            print("=============================================")
 
 def main():
     """ Program Entry Point. """

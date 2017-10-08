@@ -74,7 +74,7 @@ lots and how many avalible spaces it has.
 The display signs will use the same RXR/RLP Communication Modules to connect to the
 Symphony Network.
 
-## Real Aricteture
+## Real Architecture Diagram
 
                        _                                  
                      (`  ).                     _           
@@ -113,7 +113,7 @@ Symphony Network.
     --> = Symphony Link
  
 
-## Simulation Arcitecture
+## Simulation Architecture Diagram
 
                         //////////                          
                         |  UMBC  |    The Display Device                         
@@ -124,9 +124,10 @@ Symphony Network.
                         |        |
 
 ### Diagram Key
+
     |^| = Parking Sensor
-    |@|    App
+    |@|    Client
     
     
-    --> = Symphony Link
+    --> = TCP Connection
     
