@@ -2,8 +2,8 @@
 A Parking Solution for UMBC.
 
 # Problem
-Finding a parking spot during prime-time school hours can be time consuming,
-very time consuming. Personally I have been in situations where I come to
+Finding a parking spot during prime-time school hours can be time-consuming,
+very time-consuming. Personally, I have been in situations where I come to
 school 40 minutes early for class and still end up 5 minutes late after looking
 for a parking spot for 35 minutes, and then walking 10 minutes to class because
 you ended up in some of the furthest away lots possible.
@@ -18,12 +18,12 @@ they leave.
 
 # Solution
 To fix this problem, I am proposing a system that will track how many spots are 
-avalible in which parking lots. So that when drive into UMBC expecting to find
-a parking spot in a reasonable time, in the best posible location, they know
+available in which parking lots. So that when drive into UMBC expecting to find
+a parking spot in a reasonable time, in the best possible location, they know
 exactly where to go.
 
 ## How are we going to track what spots are available?
-Using pneumatic vehicle counters on every parking lot entrance / exit. These
+Using pneumatic vehicle counters on every parking lot entrance/exit. These
 vehicle counters will be able to collect...
 
 * Direction of Travel (in or out of the parking lot)
@@ -32,13 +32,13 @@ vehicle counters will be able to collect...
 * The length of each vehicle
 
 per vehicle. When this data is collected over a substantial period of time
-it can be used to make infrastructure improvments, view seasonal trends,
+it can be used to make infrastructure improvements, view seasonal trends,
 improve traffic flows, and much more.
 
 While all this data can be collected optionally, the only thing we really
 care about for this application is the direction of travel for each car.
 
-## How will this data be transfered from the parking lot into the cloud?
+## How will this data be transferred from the parking lot into the cloud?
 Using Symphony Link from Link Labs. Symphony Link is a wireless solution for
 enterprise and industrial customers who need to securely connect their IoT
 devices to the cloud. Symphony Link is optimized for low power and wide range
@@ -49,9 +49,7 @@ Each parking sensor device will need a Link Labs RXR or RLP Communication Module
 which can connect to the Link Labs Gateway.
 
 ### Gateway
-This powerful device manages security, uplink and downlink, and many advanced 
-low power, wide-area (LPWA) features only available with Symphony Link. For 
-data backhaul, the gateway features ethernet, WiFi, 3G cellular, or 4G LTE.
+This powerful device manages security, uplink and downlink, and much advanced low power, wide-area (LPWA) features only available with Symphony Link. For data backhaul, the gateway features ethernet, WiFi, 3G cellular, or 4G LTE.
 The Link Labs Gateway should be installed on one of the two cellular towers that
 are registered to the University of Maryland: Baltimore County. This would give
 the Gateway a great enough range to cover the entire campus. Although more gateways
@@ -67,9 +65,9 @@ answer to this question.
 
 We should install Symphony connected signs that show up-to-date numbers for the
 cars that are in each lot. These signs need to be in strategic locations (such as
-the UMBC enterances and infront of the Lots, etc.) that can be discussed and modified
-in a later date with more specifics. These signs will display a table of the selected
-lots and how many avalible spaces it has.
+the UMBC entrances and in front of the Lots, etc.) that can be discussed and modified
+at a later date with more specifics. These signs will display a table of the selected
+lots and how many available spaces it has.
 
 The display signs will use the same RXR/RLP Communication Modules to connect to the
 Symphony Network.
