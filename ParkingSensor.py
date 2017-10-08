@@ -1,12 +1,14 @@
-# Parking Sensor Simulation for UMBC
-# Thomas(Sascha) Alexander Steinholz
+"""
+Parking Sensor Simulation for UMBC
+by Thomas(Sascha) Alexander Steinholz
+"""
 
 COMMANDS = [
-    ['done', 'q', 'exits the application.'],
-    ['car enter', 'j', 'simulates a car entering the parking lot.'],
-    ['car exit', 'k', 'simulates a car leaving the parking lot.'],
-    ['simulate', 's', 'puts the application in simulation mode.'],
-    ['help', 'h', 'will display this message.']
+    ['done',  'q', 'Exits the application.'],
+    ['enter', 'j', 'Simulates a car entering the parking lot.'],
+    ['leave', 'k', 'Simulates a car leaving the parking lot.'],
+    ['sim',   's', 'Puts the application in simulation mode.'],
+    ['help',  'h', 'Will display this message.']
 ]
 
 
@@ -17,49 +19,50 @@ def validate_input(user_input):
             return index
     return -1
 
-def handle_error():
-    """ Handles errors ;) """
-    print "ERROR: Unknown command!"
-
 def quit_program():
     """ Quits program ;) """
-    print "Finished the Parking Sensor Simulator!"
+    print("Finished the Parking Sensor Simulator!")
     exit()
 
 def car_enter():
     """ TODO """
-    print ""
+    print("")
 
-def car_exit():
+def car_leave():
     """ TODO """
-    print ""
+    print("")
 
 def simulate():
     """ Every [1-5s] have a car [enter or leave]. """
-    print ""
+    print("")
 
 def print_help():
-    """ TODO """
-    print ""
+    """ Print the help message ;) """
+    print("Valid Commands:")
+    for cmd in COMMANDS:
+        print(cmd[0], "\t["+cmd[1]+"]\t-", cmd[2])
 
 
 def main():
     """ Program Entry Point. """
 
-    print "\nThis program emulates a connection to a vehicle sensor which is "\
+    print( "This program emulates a connection to a vehicle sensor which is "\
           "connected to LinkLab's Symphony Link Network which sends all the" \
-          "data to LinkLab's Conductor.\n"
+          "data to LinkLab's Conductor.\n")
+    print_help()
+    print("")
 
     # Main Loop
     while True:
-        {
-            -1: handle_error,
-            0: quit_program,
-            1: car_enter,
-            2: car_exit,
-            3: simulate,
-            4: print_help,
-        }[validate_input(input("- "))]()
-
+        try:
+            {
+                0: quit_program,
+                1: car_enter,
+                2: car_leave,
+                3: simulate,
+                4: print_help,
+            }[validate_input(input("Parking Sensor Terminal > "))]()
+        except KeyError:
+            print("ERROR: Unknown command!")
 
 main()
