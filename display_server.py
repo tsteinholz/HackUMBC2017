@@ -59,7 +59,7 @@ def render_parking_spots():
             print("")
             for index, lot in enumerate(parking_directory):
                 print("=============================================")
-                print("Parking Lot #" + str(index), " || Avalible Spots: ", 150 - lot[1], "/ 150")
+                print("Parking Lot #" + str(index + 1), " || Avalible Spots: ", 150 - lot[1], "/ 150")
                 print("=============================================")
 
 def main():
