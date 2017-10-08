@@ -3,8 +3,12 @@ Parking Sensor Simulation for UMBC
 by Thomas(Sascha) Alexander Steinholz
 """
 
+from multiprocessing.connection import Client
 from random import randint
 from time import sleep
+
+SERVER = 'localhost'
+SERVER_PORT = 7980
 
 COMMANDS = [
     ['done',  'q', 'Exits the application.'],
@@ -22,27 +26,28 @@ def validate_input(user_input):
             return index
     return -1
 
-def quit_program():
+def quit_program(client):
     """ Quits program ;) """
     print("Finished the Parking Sensor Simulator!")
+    client.close()
     exit()
 
-def car_enter():
-    """ TODO """
-    print("")
+def car_enter(client):
+    """ Send car enter cmd to the server. """
+    client.send('enter')
 
-def car_leave():
-    """ TODO """
-    print("")
+def car_leave(client):
+    """ Send car leave cmd to the server. """
+    client.send('leave')
 
-def simulate():
+def simulate(client, *unused):
     """ Every [1-5s] have a car [enter or leave]. """
     print("Started Automatic Simulation...")
     while True:
         sleep(randint(1, 5))
         (car_enter if randint(0, 1) == 0 else car_leave)()
 
-def print_help():
+def print_help(client, *unused):
     """ Print the help message ;) """
     print("Valid Commands:")
     for cmd in COMMANDS:
@@ -55,8 +60,10 @@ def main():
     print( "This program emulates a connection to a vehicle sensor which is "\
           "connected to LinkLab's Symphony Link Network which sends all the" \
           "data to LinkLab's Conductor.\n")
-    print_help()
+    print_help(None)
     print("")
+
+    client = Client((SERVER, SERVER_PORT))
 
     # Main Loop
     while True:
@@ -67,7 +74,7 @@ def main():
                 2: car_leave,
                 3: simulate,
                 4: print_help,
-            }[validate_input(input("Parking Sensor Terminal > "))]()
+            }[validate_input(input("Parking Sensor Terminal > "))](client)
         except KeyError:
             print("ERROR: Unknown command!")
 
