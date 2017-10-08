@@ -40,15 +40,17 @@ def car_leave(client):
     """ Send car leave cmd to the server. """
     client.send('leave')
 
-def simulate(client, *unused):
+def simulate(client):
     """ Every [1-5s] have a car [enter or leave]. """
+    del client
     print("Started Automatic Simulation...")
     while True:
         sleep(randint(1, 5))
         (car_enter if randint(0, 1) == 0 else car_leave)()
 
-def print_help(client, *unused):
+def print_help(client):
     """ Print the help message ;) """
+    del client
     print("Valid Commands:")
     for cmd in COMMANDS:
         print(cmd[0], "\t["+cmd[1]+"]\t-", cmd[2])
@@ -63,7 +65,11 @@ def main():
     print_help(None)
     print("")
 
-    client = Client((SERVER, SERVER_PORT))
+    try:
+        client = Client((SERVER, SERVER_PORT))
+    except ConnectionRefusedError:
+        print("ERROR: Could not connect to server!")
+        exit()
 
     # Main Loop
     while True:
