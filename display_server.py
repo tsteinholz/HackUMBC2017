@@ -32,7 +32,7 @@ def update_parking(identifier, direction):
                 elif direction == 'leave':
                     if lot[1] > 0:
                         lot[1] -= 1
-                        return
+                    return
                 else:
                     print("[!] Error: Unknown message from", identifier)
                     return
@@ -49,7 +49,7 @@ def client_thread(conn):
             print("[-] Disconnected from Parking Sensor", str(conn.fileno()) + ".")
             conn.close()
             return
-        print(conn.fileno(), "]", msg)
+        #print(conn.fileno(), "]", msg)
         update_parking(conn.fileno(), msg)
 
 

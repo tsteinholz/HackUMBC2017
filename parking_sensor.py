@@ -28,25 +28,26 @@ def validate_input(user_input):
 
 def quit_program(client):
     """ Quits program ;) """
-    print("Finished the Parking Sensor Simulator!")
+    print("[i] Finished the Parking Sensor Simulator!")
     client.close()
     exit()
 
 def car_enter(client):
     """ Send car enter cmd to the server. """
     client.send('enter')
+    print("[i] Reporting a car entering the parking lot.")
 
 def car_leave(client):
     """ Send car leave cmd to the server. """
     client.send('leave')
+    print("[i] Reporting a car leaving the parking lot.")
 
 def simulate(client):
     """ Every [1-5s] have a car [enter or leave]. """
-    del client
-    print("Started Automatic Simulation...")
+    print("[i] Started Automatic Simulation...")
     while True:
-        sleep(randint(1, 5))
-        (car_enter if randint(0, 1) == 0 else car_leave)()
+        sleep(randint(1, 3))
+        (car_enter if randint(0, 100) < 70 else car_leave)(client)
 
 def print_help(client):
     """ Print the help message ;) """
@@ -60,7 +61,7 @@ def main():
     """ Program Entry Point. """
 
     print( "This program emulates a connection to a vehicle sensor which is "\
-          "connected to LinkLab's Symphony Link Network which sends all the" \
+          "connected to LinkLab's Symphony Link Network which sends all the " \
           "data to LinkLab's Conductor.\n")
     print_help(None)
     print("")
