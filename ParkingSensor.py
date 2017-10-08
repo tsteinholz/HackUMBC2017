@@ -3,6 +3,9 @@ Parking Sensor Simulation for UMBC
 by Thomas(Sascha) Alexander Steinholz
 """
 
+from random import randint
+from time import sleep
+
 COMMANDS = [
     ['done',  'q', 'Exits the application.'],
     ['enter', 'j', 'Simulates a car entering the parking lot.'],
@@ -34,7 +37,10 @@ def car_leave():
 
 def simulate():
     """ Every [1-5s] have a car [enter or leave]. """
-    print("")
+    print("Started Automatic Simulation...")
+    while True:
+        sleep(randint(1, 5))
+        (car_enter if randint(0, 1) == 0 else car_leave)()
 
 def print_help():
     """ Print the help message ;) """
