@@ -26,6 +26,15 @@ def validate_input(user_input):
             return index
     return -1
 
+def send_message(client, msg):
+    """ sends msg to server. """
+    try:
+        client.send(msg)
+    except BrokenPipeError:
+        print("[!] Error! Server Closed!")
+        exit()
+
+
 def quit_program(client):
     """ Quits program ;) """
     print("[i] Finished the Parking Sensor Simulator!")
@@ -34,12 +43,12 @@ def quit_program(client):
 
 def car_enter(client):
     """ Send car enter cmd to the server. """
-    client.send('enter')
+    send_message(client, 'enter')
     print("[i] Reporting a car entering the parking lot.")
 
 def car_leave(client):
     """ Send car leave cmd to the server. """
-    client.send('leave')
+    send_message(client, 'leave')
     print("[i] Reporting a car leaving the parking lot.")
 
 def simulate(client):
